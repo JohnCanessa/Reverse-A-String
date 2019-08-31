@@ -5,7 +5,7 @@ public class Solution {
 	/*
 	 * Reverse the specified string.
 	 */
-	static String reverse(String str) {
+	static String reverse1(String str) {
 				
 		// **** no need to reverse ****
 		if (str.length() <= 1)
@@ -26,6 +26,50 @@ public class Solution {
 	}
 
 	/*
+	 * Reverse a string using StringBuilder.
+	 */
+	static String reverse2(String str) {
+		
+//		// **** a one liner ****
+//		return new StringBuilder(str)
+//						.reverse()
+//						.toString();
+		
+		// **** no need to reverse ****
+		if (str.length() <= 1)
+			return str;
+
+		// **** make a StringBuilder with the specified string ****
+		StringBuilder sb = new StringBuilder(str);
+				
+		// **** reverse the string ****
+		sb.reverse();
+		
+		// **** return the reverse string ****
+		return sb.toString();
+	}
+	
+	/*
+	 * Reverse the stirng using StringBuilder one character at a time.
+	 */
+	static String reverse3(String str) {
+		
+		// **** no need to reverse ****
+		if (str.length() <= 1)
+			return str;
+
+		// **** ****
+		StringBuilder sb = new StringBuilder();
+		
+		// **** ****
+		for (int i = str.length() - 1; i >= 0; i--)
+			sb.append(str.charAt(i));
+		
+		// **** return the reversed string ****
+		return sb.toString();
+	}
+	
+	/*
 	 * Test scaffolding.
 	 */
 	public static void main(String[] args) {
@@ -41,11 +85,23 @@ public class Solution {
 		System.out.println("main <<<    str ==>" + str + "<==");
 		
 		// **** reverse the string ****
-		String revStr = reverse(str) ;
+		String revStr = reverse1(str) ;
 		
 		// **** ****
 		System.out.println("main <<< revStr ==>" + revStr + "<==");
 		
+		// **** reverse the string ****
+		revStr = reverse2(str);
+		
+		// **** ****
+		System.out.println("main <<< revStr ==>" + revStr + "<==");
+		
+		// **** reverse the string ****
+		revStr = reverse3(str);
+		
+		// **** ****
+		System.out.println("main <<< revStr ==>" + revStr + "<==");
+
 		// **** close scanner ****
 		sc.close();
 	}
